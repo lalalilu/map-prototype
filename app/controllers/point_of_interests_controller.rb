@@ -1,0 +1,2 @@
+class PointOfInterestsController < ApplicationController
+end
