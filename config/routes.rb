@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
   resources :users, only: :show
+  resources :trips do
+    resources :point_of_interests
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
