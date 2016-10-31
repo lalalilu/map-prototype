@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 .navbar-default .navbar-brand {
-  font-family: 'Lobster_1.3regular';
+  font-family: 'lobster_1.3regular';
   font-size: 40px;
   color: #7eaba6;
   font-weight: 600;
@@ -15,4 +15,9 @@
 .spot-box .form-box {
   display: inline-block;
   text-align: left;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'merriweather_ultraboldregular';
 }

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   resources :users, only: :show
   resources :trips do
-    resources :point_of_interests
+    resources :point_of_interests, only: :create
   end
 
   # Example of regular route:
