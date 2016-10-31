@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
   resources :users, only: :show
-  resources :trips, only: [:new, :create, :show, :index] do
-    resources :point_of_interests
+  resources :trips do
+    resources :point_of_interests, only: :create
   end
 
   # Example of regular route:
