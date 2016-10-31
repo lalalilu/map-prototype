@@ -1,3 +1,36 @@
-<h1>Spots</h1>
+<h1><%= @point_of_interest.name %></h1>
 
-<%= @point_of_interest.name %>
+<div>
+
+  <% if @point_of_interest.latitude.present? && @point_of_interest.longitude.present? %>
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: <%= @point_of_interest.latitude %>, lng: <%= @point_of_interest.longitude %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkdfe0mdBnUGL1EsCHte8Rsub6POEAaPQ&callback=initMap">
+    </script>
+
+    <div id="map"></div>
+<% end %>
+
+  <div class="pull-right">
+    <% if current_user && current_user == @point_of_interest.user %>
+      <%= link_to 'Edit', edit_trip_point_of_interest_path(:trip_id, @point_of_interest), class: 'btn btn-primary' %>
+      <%= link_to 'Destroy', trip_point_of_interest_path, method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>
