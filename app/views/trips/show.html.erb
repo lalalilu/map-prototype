@@ -4,7 +4,15 @@
 
 <% @trip.point_of_interests.each do |poi| %>
   <% if poi.present? %>
-    <%= poi.name %>
+    <div class="spot-box col-xs-10 col-xs-offset-1">
+      <h3><%= poi.name %></h3>
+      <p>
+        <%= poi.street %><br>
+        <%= poi.city %><br>
+        <%= poi.state %><br>
+        <%= poi.zipcode %>
+      </p>
+    </div>
   <% end %>
 <% end %>
 

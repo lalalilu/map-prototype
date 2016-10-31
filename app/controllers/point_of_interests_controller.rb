@@ -8,7 +8,7 @@ class PointOfInterestsController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @trip.point_of_interests.create(point_of_interest_params.merge(user: current_user))
-    redirect_to trip_path
+    redirect_to trip_path(@trip)
   end
 
   private
